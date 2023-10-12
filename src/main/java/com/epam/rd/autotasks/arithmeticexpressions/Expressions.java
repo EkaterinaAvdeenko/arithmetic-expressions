@@ -100,11 +100,4 @@ public class Expressions {
         return expression;
     }
 
-    public static Expression fraction(Expression dividend, Expression divisor){
-       Expression expression = new Expression() {
-           @Override
-           public int evaluate() {
-               int fraction = dividend.evaluate() / divisor.evaluate();
-
-               return fraction;
-           }}
+}
