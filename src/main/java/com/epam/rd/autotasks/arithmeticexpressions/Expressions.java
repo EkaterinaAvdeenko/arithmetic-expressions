@@ -1,6 +1,4 @@
 package com.epam.rd.autotasks.arithmeticexpressions;
-
-
 import java.util.LinkedList;
 import java.util.stream.Collectors;
 import java.util.List;
@@ -100,4 +98,25 @@ public class Expressions {
         return expression;
     }
 
+    public static Expression fraction(Expression dividend, Expression divisor){
+       Expression expression = new Expression() {
+           @Override
+           public int evaluate() {
+               int fraction = dividend.evaluate() / divisor.evaluate();
+
+               return fraction;
+           }
+
+           @Override
+           public String toExpressionString() {
+               List<String> listOfMembers = new LinkedList<String>();
+               listOfMembers.add(dividend.toExpressionString());
+               listOfMembers.add(divisor.toExpressionString());
+               String text = listOfMembers.stream().collect(Collectors.joining(" / ", "(", ")"));
+
+               return text;
+           }
+       };
+        return expression;
+    }
 }
